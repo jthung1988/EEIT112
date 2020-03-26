@@ -1,0 +1,30 @@
+<script type="text/javascript">
+    
+    var idcode = new RegExp(/^eeit112[0-9]{2}$/);
+    var chinesscode = new RegExp(/^[\u4e00-\u9fff]*$/);
+    var pwdCKcode = new RegExp(/(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[a-zA-Z\d].{6,}/);
+    $("#userId").blur(function () {
+        if (idcode.test(this.value)) {
+            $("#errorId").html("Correct");
+        }
+        else {
+        	$("#errorId").html("Wrong");
+        }
+    })
+    $("#userName").blur(function () {
+        if (this.value.length > 1 && chinesscode.test(this.value)) {
+            $("#errorName").html("Correct");
+        }
+        else {
+        	$("#errorName").html("Wrong");
+        }
+    })
+    $("#userPwd").blur(function () {
+        if (pwdCKcode.test(this.value)) {
+            $("#errorPwd").html("Correct");
+        }
+        else {
+        	$("#errorPwd").html("Wrong");
+        }
+    })
+    </script>
